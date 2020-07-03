@@ -1,13 +1,8 @@
-from app.models.Direction import Direction
-from app.models.Coordinates import Coordinates
+from app.models.direction import Direction
 
 class Position:
 
-    def __init__(self):
-        self.coordinates = Coordinates(0,0)        
-        self.direction = Direction.NORTH.value
-
-    def set_position(self, x_coordinate, y_coordinate, direction):
-        self.coordinates.x = x_coordinate
-        self.coordinates.y = y_coordinate
+    def __init__(self, x_coordinate:int, y_coordinate:int, direction:Direction):
+        self.x_coordinate = x_coordinate
+        self.y_coordinate = y_coordinate
         self.direction = direction
