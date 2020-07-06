@@ -3,7 +3,7 @@ import logging
 import argparse
 from app.models.board import Board
 from app.models.robot import Robot
-from app.handlers.input_handler import handle_user_input
+from app.handlers.command_handler import CommandHandler
 
 def initilise_app():
     print('******************************************')
@@ -11,9 +11,8 @@ def initilise_app():
     print('******************************************')
 
     board_dimension = 5 #todo:load from settings
-    board = Board(board_dimension)
-    robot = Robot(-1,-1,None)
-    handle_user_input(board, robot)
+    commandHandler = CommandHandler(Board(board_dimension), Robot(-1,-1,None))
+    commandHandler.handle_user_input()
 
 
 def main():
