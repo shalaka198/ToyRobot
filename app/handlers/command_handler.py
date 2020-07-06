@@ -1,3 +1,4 @@
+import logging
 from app.models.board import Board
 from app.models.robot import Robot
 from app.models.direction import Direction
@@ -26,30 +27,42 @@ class CommandHandler:
             command = input("What's your instruction:").strip().upper()
             try:
                 if command.startswith('PLACE'):
+                    logging.debug("handle_user_input(): command PLACE")
                     valid, x, y, dir = CommandHandler.validate_place_command(command, Board.limit)
                     if valid:
-                        self.robot.place(x,y,dir)
+                        self.robot.place(x,y,dir)                        
+                    else:
+                        logging.info("handle_user_input(): invalid place instruction entered by user - {}".format(command))
+
                 elif command == 'MOVE':
+                    logging.debug("handle_user_input(): command MOVE")
                     self.robot.move()
+
                 elif command == 'LEFT':
+                    logging.debug("handle_user_input(): command LEFT")
                     self.robot.change_direction('left')
+
                 elif command == 'RIGHT':
+                    logging.debug("handle_user_input(): command RIGHT")
                     self.robot.change_direction('right')
+
                 elif command == 'REPORT':
+                    logging.debug("handle_user_input(): command REPORT")
                     self.robot.report()
+
                 elif command == 'EXIT':
+                    logging.debug("handle_user_input(): command EXIT")
                     print('Exiting Robot App...')
                     exit = True
+
                 else:
-                    #print("*****Please enter a valid instruction")
                     #Ignore
-                    pass
+                    logging.info("handle_user_input(): invalid instruction entered by user - {}".format(command))                                       
                     
                 print("")
 
-            except Exception as e:
-                #todo
-                print("EXCEPTION {}".format(e))
+            except Exception as e:                
+                logging.error("handle_user_input(): EXCEPTION {}".format(e))
 
 
     @staticmethod
