@@ -25,7 +25,7 @@ def setup_logging(conf):
         log_level = logging.CRITICAL   
     
     logging.basicConfig(level = log_level,
-                        filename = log_location + '/robot_' + datetime.now().strftime("%Y%m%d_%H%M%S_%f")+ '.txt',
+                        filename = log_location + 'toyrobot/robot_' + datetime.now().strftime("%Y%m%d_%H%M%S_%f")+ '.txt',
                         format = '%(levelname)s %(asctime)s %(message)s')    
 
     logging.debug('setup_logging(): done')

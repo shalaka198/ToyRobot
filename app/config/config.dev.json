@@ -1,0 +1,9 @@
+{
+  "LOGGING": {
+      "LEVEL": "DEBUG",
+      "LOCATION": "/var/log"
+    },
+    "APP_SETTINGS": {
+      "BOARD_DIMENSIONS": 5
+    }
+}
