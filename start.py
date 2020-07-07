@@ -9,7 +9,7 @@ from app.handlers.command_handler import CommandHandler
 
 
 def setup_logging(conf):    
-    log_location = conf['LOGGING']['LOCATION']    
+    log_location = conf['LOGGING']['LOCATION'] + '/toyrobot'    
     if not os.path.exists(log_location):
         os.makedirs(log_location) 
     
@@ -25,7 +25,7 @@ def setup_logging(conf):
         log_level = logging.CRITICAL   
     
     logging.basicConfig(level = log_level,
-                        filename = log_location + 'toyrobot/robot_' + datetime.now().strftime("%Y%m%d_%H%M%S_%f")+ '.txt',
+                        filename = log_location + '/robot_' + datetime.now().strftime("%Y%m%d_%H%M%S_%f")+ '.txt',
                         format = '%(levelname)s %(asctime)s %(message)s')    
 
     logging.debug('setup_logging(): done')
