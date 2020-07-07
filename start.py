@@ -31,14 +31,14 @@ def setup_logging(conf):
     logging.debug('setup_logging(): done')
 
 
-def initilise_app():
+def initilise_app(conf):
     logging.debug('initilise_app(): start')
     
     print('******************************************')
     print('**** Welcome to Robot App ****')
     print('******************************************')
 
-    board_dimension = 5 #todo:load from settings
+    board_dimension = int(conf['APP_SETTINGS']['BOARD_DIMENSIONS'])
     commandHandler = CommandHandler(Board(board_dimension), Robot(-1,-1,None))
     commandHandler.handle_user_input()
 
@@ -50,7 +50,7 @@ def main():
 
     setup_logging(conf)
 
-    initilise_app()  
+    initilise_app(conf)  
 
 
 if __name__ == '__main__':
