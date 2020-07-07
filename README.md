@@ -27,6 +27,12 @@ By default, config is setup to pickup development environment settings.
 `docker start -i robot`
 
 
+## Running Tests
+1. In terminal, navigate to directory containing Dockerfile. In this project navigate to ToyRobotSolution directory
+2. Run python command in the terminal
+`python .\start_tests.py`
+
+
 ## Assumptions
 - User input is not constrained to be uppercase
 - User input can include whitespace; my app removes whitespace and capitalises instruction before proceeding to next steps
